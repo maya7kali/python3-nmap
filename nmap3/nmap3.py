@@ -254,7 +254,7 @@ class Nmap(object):
         @param: timeout--> command subprocess timeout in seconds.
         """
         if (os.path.exists(self.nmaptool)):
-            sub_proc = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+            sub_proc = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, creationflags=subprocess.CREATE_NO_WINDOW)
             try:
                 output, errs = sub_proc.communicate(timeout=timeout)
             except Exception as e:
